@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kedi Videosu İzleme</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        button.evet {
+            margin-left: 44%;
+        }
+
+        button.hayir {
+            margin-left: 5%;
+            position: absolute; /* Butonun mutlak konumda olması için */
+            top: 950px;
+            left: 155px;
+        }
+    </style>
+</head>
+<body onload="changeIt();" onclick="moveIt();">
+
+    <h1>Kedi Videosu İzlemek İster Misin?</h1>
+    <button class="evet" onclick="redirectToWebsite()">Evet!</button>
+    <button class="hayir" id="myButton">Hayır!</button>
+
+    <script>
+        const button = document.getElementById('myButton');
+
+        function changeIt() {
+            const startX = 900; // X koordinatı
+            const startY = 155; // Y koordinatı
+
+            button.style.left = startX + 'px';
+            button.style.top = startY + 'px';
+        }
+
+        function moveIt() {
+            // Sayfaya tıklandığında yapılacak işlemleri ekleyebilirsiniz
+        }
+
+        function redirectToWebsite() {
+            // Evet butonuna tıklandığında bir web sitesine yönlendirme
+            window.location.href = "https://www.youtube.com/watch?v=wh9QLjk3M2k"; // Yönlendirilecek web sitesinin URL'sini buraya ekleyin
+        }
+
+        button.addEventListener('mouseover', function() {
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        });
+    </script>
+
+</body>
+</html>
